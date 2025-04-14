@@ -10,17 +10,17 @@
 
     source kubespray-venv/bin/activate
 
-   pip install -r requirements.txt 
+    pip install -r requirements.txt 
 
-   cd kubespray/inventory
+    cd kubespray/inventory
 
-   cp -R sample mycluster
+    cp -R sample mycluster
 
-   ansible-playbook cluster.yml -i inventory/mycluster/inventory.ini
+    ansible-playbook cluster.yml -i inventory/mycluster/inventory.ini
 
-   scp root@95.217.5.17:/etc/kubernetes/admin.conf .
+    scp root@95.217.5.17:/etc/kubernetes/admin.conf .
 
 Delete Cluster k8s
 
-   ansible-playbook reset.yml -i inventory/mycluster/inventory.ini
+    ansible-playbook reset.yml -i inventory/mycluster/inventory.ini
    
