@@ -38,4 +38,5 @@ Install nginx controller
        kubectl get pods -n ingress-nginx
 
 Uninstall nginx conroller
+       
        helm uninstall ingress-nginx -n ingress-nginx
