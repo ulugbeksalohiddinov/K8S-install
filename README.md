@@ -23,4 +23,19 @@
 Delete Cluster k8s
 
     ansible-playbook reset.yml -i inventory/mycluster/inventory.ini
-   
+
+
+
+Install nginx controller
+
+       kubectl create ns ingress-nginx
+
+       helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx   --namespace ingress-nginx   --set controller.kind=DaemonSet   --set controller.hostNetwork=true   --set controller.daemonset.useHostPort=true   --set controller.service.enabled=false   --set 
+       controller.containerPort.http=80   --set controller.containerPort.https=443
+
+       kubectl get svc -n ingress-nginx
+
+       kubectl get pods -n ingress-nginx
+
+Uninstall nginx conroller
+       helm uninstall ingress-nginx -n ingress-nginx
